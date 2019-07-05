@@ -99,7 +99,7 @@
 <meta name="keywords" content="Study Life Dev  Program">
 <meta property="og:type" content="website">
 <meta property="og:title" content="时光机器">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="https://shawncos.github.io/index.html">
 <meta property="og:site_name" content="时光机器">
 <meta property="og:description" content="For Life">
 <meta property="og:locale" content="zh-CN">
@@ -113,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="https://shawncos.github.io/">
 
 
 
@@ -291,7 +291,180 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/05/Try-it-Hard/">
+    <link itemprop="mainEntityOfPage" href="https://shawncos.github.io/2019/07/05/摩尔投票法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ShawnCos">
+      <meta itemprop="description" content="For Life">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光机器">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/05/摩尔投票法/" class="post-title-link" itemprop="url">摩尔投票法</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-05 14:55:28 / 修改时间：16:53:06" itemprop="dateCreated datePublished" datetime="2019-07-05T14:55:28+08:00">2019-07-05</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">-算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>leetcode 169<br>给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。你可以假设数组是非空的，并且给定的数组总是存在众数。</p>
+</blockquote>
+<p>我的笨办法：用Map&lt;K,V&gt;  其中K是数,V是出现次数。当算到某个K对应的V是超过n/2的时候，返回这个数</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int majorityElement(int[] nums) &#123;</span><br><span class="line">        int len=nums.length;</span><br><span class="line">        if(len==1)&#123;</span><br><span class="line">            return nums[0];</span><br><span class="line">        &#125;</span><br><span class="line">        Map&lt;Integer,Integer&gt; numberMap=new HashMap&lt;&gt;();</span><br><span class="line">        for (int i = 0; i &lt; len; i++) &#123;</span><br><span class="line">            if(numberMap.containsKey(nums[i]))&#123;</span><br><span class="line">                int target=numberMap.get(nums[i])+1;</span><br><span class="line">                if(target&gt;len/2)&#123;</span><br><span class="line">                    return nums[i];</span><br><span class="line">                &#125;</span><br><span class="line">                numberMap.put(nums[i],target); </span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                numberMap.put(nums[i], 1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return 0;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><p>出现次数大于n/2也就是这个数出现的次数要大于数组长度的一半。我们都知道，这个数字只能有一个。所以方法来了。先给数组排个序，正中间的那个数，一定是众数啦。</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int majorityElement(int[] nums) &#123;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        return nums[n/2];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><p>当然这都不是重点。看标题，本文是讲摩尔投票法（Boyer–Moore majority vote algorithm）。<br>首先，什么是摩尔投票法呢?</p>
+<blockquote>
+<p>The Boyer–Moore majority vote algorithm is an algorithm for finding the majority of a sequence of elements using linear time and constant space. It is named after Robert S. Boyer and J Strother Moore, who published it in 1981,[1] and is a prototypical example of a streaming algorithm.<br>In its simplest form, the algorithm finds a majority element, if there is one: that is, an element that occurs repeatedly for more than half of the elements of the input. However, if there is no majority, the algorithm will not detect that fact,and will still output one of the elements. A version of the algorithm that makes a second pass through the data can be used to verify that the element found in the first pass really is a majority.</p>
+</blockquote>
+<p>以上是来自维基百科的解释。本文只说明最简单的形式，也就是上面的题目。</p>
+<p>核心思想其实就是抵消。假设给定数组nums=[1,2,3,1,3,1,1,1];<br>    1. 假定一个major(众数)=nums[0],一个counter(计数器)=0;<br>    2. 遍历数组,如果当前cur,即nums[cur]==major,则count++；否则count–;<br>    3. 如果count==0  ，则marjor=nums[cur];<br>    4. 遍历结束返回marjor,即为众数。</p>
+<p>这里贴个链接便于理解 <a href="https://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html" target="_blank" rel="noopener">https://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html</a> ;</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">    class Solution &#123;</span><br><span class="line">    public int majorityElement(int[] nums) &#123;</span><br><span class="line">        if(nums.length==0) return nums[0];</span><br><span class="line">        int marjor=nums[0];</span><br><span class="line">        int count=0;</span><br><span class="line">        for (int i = 0,len=nums.length; i &lt; len; i++) &#123;</span><br><span class="line">            if(nums[i]==marjor)&#123;</span><br><span class="line">                count++;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                count--;</span><br><span class="line">            &#125;</span><br><span class="line">            if(count&lt;=0)&#123;</span><br><span class="line">                marjor=nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return marjor;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><p>这里只讨论了众数大于n/2的情况。那么如果求大于n/3呢? </p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shawncos.github.io/2019/07/05/Try-it-Hard/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ShawnCos">
@@ -432,7 +605,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/05/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://shawncos.github.io/2019/07/05/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ShawnCos">
@@ -613,12 +786,29 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
 
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
               
 
               
