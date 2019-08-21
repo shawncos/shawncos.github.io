@@ -95,18 +95,18 @@
 
 
 
-  <meta name="description" content="leetcode 169给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。你可以假设数组是非空的，并且给定的数组总是存在众数。  我的笨办法：用Map&amp;lt;K,V&amp;gt;  其中K是数,V是出现次数。当算到某个K对应的V是超过n/2的时候，返回这个数 12345678910111213141516171819202122class Solutio">
-<meta name="keywords" content="Study Life Dev  Program">
+  <meta name="description" content="Thread类一共有四个构造方法，都会调用Thread类的init()方法。  这里有一些常用方法。  1.static Thread currentThread(); 返回当前线程的引用。  2.long getId();返回线程的标识符。  3.String getName();返回此线程的名称。  4.int getPriority();返回此线程的优先级。  5.boolean isA">
+<meta name="keywords" content="-Java -多线程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="摩尔投票法">
-<meta property="og:url" content="https://shawncos.github.io/2019/07/05/摩尔投票法/index.html">
+<meta property="og:title" content="从零开始的Java多线程(二)">
+<meta property="og:url" content="https://shawncos.github.io/2019/07/11/从零开始的Java多线程-二/index.html">
 <meta property="og:site_name" content="时光机器">
-<meta property="og:description" content="leetcode 169给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。你可以假设数组是非空的，并且给定的数组总是存在众数。  我的笨办法：用Map&amp;lt;K,V&amp;gt;  其中K是数,V是出现次数。当算到某个K对应的V是超过n/2的时候，返回这个数 12345678910111213141516171819202122class Solutio">
+<meta property="og:description" content="Thread类一共有四个构造方法，都会调用Thread类的init()方法。  这里有一些常用方法。  1.static Thread currentThread(); 返回当前线程的引用。  2.long getId();返回线程的标识符。  3.String getName();返回此线程的名称。  4.int getPriority();返回此线程的优先级。  5.boolean isA">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-05T08:53:06.898Z">
+<meta property="og:updated_time" content="2019-07-11T07:09:51.015Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="摩尔投票法">
-<meta name="twitter:description" content="leetcode 169给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。你可以假设数组是非空的，并且给定的数组总是存在众数。  我的笨办法：用Map&amp;lt;K,V&amp;gt;  其中K是数,V是出现次数。当算到某个K对应的V是超过n/2的时候，返回这个数 12345678910111213141516171819202122class Solutio">
+<meta name="twitter:title" content="从零开始的Java多线程(二)">
+<meta name="twitter:description" content="Thread类一共有四个构造方法，都会调用Thread类的init()方法。  这里有一些常用方法。  1.static Thread currentThread(); 返回当前线程的引用。  2.long getId();返回线程的标识符。  3.String getName();返回此线程的名称。  4.int getPriority();返回此线程的优先级。  5.boolean isA">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="https://shawncos.github.io/2019/07/05/摩尔投票法/">
+  <link rel="canonical" href="https://shawncos.github.io/2019/07/11/从零开始的Java多线程-二/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>摩尔投票法 | 时光机器</title>
+  <title>从零开始的Java多线程(二) | 时光机器</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://shawncos.github.io/2019/07/05/摩尔投票法/">
+    <link itemprop="mainEntityOfPage" href="https://shawncos.github.io/2019/07/11/从零开始的Java多线程-二/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ShawnCos">
@@ -324,7 +324,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">摩尔投票法
+          <h2 class="post-title" itemprop="name headline">从零开始的Java多线程(二)
 
               
             
@@ -350,7 +350,7 @@
                 
               
 
-              <time title="创建时间：2019-07-05 14:55:28 / 修改时间：16:53:06" itemprop="dateCreated datePublished" datetime="2019-07-05T14:55:28+08:00">2019-07-05</time>
+              <time title="创建时间：2019-07-11 14:24:22 / 修改时间：15:09:51" itemprop="dateCreated datePublished" datetime="2019-07-11T14:24:22+08:00">2019-07-11</time>
             </span>
           
 
@@ -369,7 +369,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">-算法</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">-Java</span></a></span>
 
                 
                 
@@ -415,19 +415,11 @@
       
 
       
-        <blockquote>
-<p>leetcode 169<br>给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。你可以假设数组是非空的，并且给定的数组总是存在众数。</p>
-</blockquote>
-<p>我的笨办法：用Map&lt;K,V&gt;  其中K是数,V是出现次数。当算到某个K对应的V是超过n/2的时候，返回这个数</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int majorityElement(int[] nums) &#123;</span><br><span class="line">        int len=nums.length;</span><br><span class="line">        if(len==1)&#123;</span><br><span class="line">            return nums[0];</span><br><span class="line">        &#125;</span><br><span class="line">        Map&lt;Integer,Integer&gt; numberMap=new HashMap&lt;&gt;();</span><br><span class="line">        for (int i = 0; i &lt; len; i++) &#123;</span><br><span class="line">            if(numberMap.containsKey(nums[i]))&#123;</span><br><span class="line">                int target=numberMap.get(nums[i])+1;</span><br><span class="line">                if(target&gt;len/2)&#123;</span><br><span class="line">                    return nums[i];</span><br><span class="line">                &#125;</span><br><span class="line">                numberMap.put(nums[i],target); </span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                numberMap.put(nums[i], 1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return 0;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><p>出现次数大于n/2也就是这个数出现的次数要大于数组长度的一半。我们都知道，这个数字只能有一个。所以方法来了。先给数组排个序，正中间的那个数，一定是众数啦。</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int majorityElement(int[] nums) &#123;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        return nums[n/2];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><p>当然这都不是重点。看标题，本文是讲摩尔投票法（Boyer–Moore majority vote algorithm）。<br>首先，什么是摩尔投票法呢?</p>
-<blockquote>
-<p>The Boyer–Moore majority vote algorithm is an algorithm for finding the majority of a sequence of elements using linear time and constant space. It is named after Robert S. Boyer and J Strother Moore, who published it in 1981,[1] and is a prototypical example of a streaming algorithm.<br>In its simplest form, the algorithm finds a majority element, if there is one: that is, an element that occurs repeatedly for more than half of the elements of the input. However, if there is no majority, the algorithm will not detect that fact,and will still output one of the elements. A version of the algorithm that makes a second pass through the data can be used to verify that the element found in the first pass really is a majority.</p>
-</blockquote>
-<p>以上是来自维基百科的解释。本文只说明最简单的形式，也就是上面的题目。</p>
-<p>核心思想其实就是抵消。假设给定数组nums=[1,2,3,1,3,1,1,1];<br>    1. 假定一个major(众数)=nums[0],一个counter(计数器)=0;<br>    2. 遍历数组,如果当前cur,即nums[cur]==major,则count++；否则count–;<br>    3. 如果count==0  ，则marjor=nums[cur];<br>    4. 遍历结束返回marjor,即为众数。</p>
-<p>这里贴个链接便于理解 <a href="https://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html" target="_blank" rel="noopener">https://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html</a> ;</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">    class Solution &#123;</span><br><span class="line">    public int majorityElement(int[] nums) &#123;</span><br><span class="line">        if(nums.length==0) return nums[0];</span><br><span class="line">        int marjor=nums[0];</span><br><span class="line">        int count=0;</span><br><span class="line">        for (int i = 0,len=nums.length; i &lt; len; i++) &#123;</span><br><span class="line">            if(nums[i]==marjor)&#123;</span><br><span class="line">                count++;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                count--;</span><br><span class="line">            &#125;</span><br><span class="line">            if(count&lt;=0)&#123;</span><br><span class="line">                marjor=nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return marjor;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><p>这里只讨论了众数大于n/2的情况。那么如果求大于n/3呢? </p>
+        <p>  Thread类一共有四个构造方法，都会调用Thread类的init()方法。<br>  这里有一些常用方法。<br>  1.static Thread currentThread(); 返回当前线程的引用。<br>  2.long getId();返回线程的标识符。<br>  3.String getName();返回此线程的名称。<br>  4.int getPriority();返回此线程的优先级。<br>  5.boolean isAlive();测试此线程是否处于活动状态。(活动状态就是线程已经启动且尚未终止。线程处于正在运行或准备运行的状态。)<br>  6.static void sleep(long millis);使当前正在执行的线程以指定的毫秒数暂停（暂时停止执行），具体取决于系统定时器和调度程序的精度和准确性.<br>  7.void interrupt();中断这个线程。<br>  8.static boolean interrupted();测试此线程是否中断，执行后具有将状态标志清除为false的功能。<br>  9.boolean isInterrupted();测试此线程是否中断，不清除状态。<br>  10.void setName(String name);设置此线程的名字。<br>  11.boolean isDaemon();是否为守护线程。（守护线程拥有自动结束自己生命周期的特性，而非守护线程不具备这个特点。）<br>  12.boolean setDaemon(boolean on);将此线程标记为daemon线程或用户线程。<br>  13.void join();等待线程终止。join()的作用是：“等待该线程终止”，这里需要理解的就是该线程是指的主线程等待子线程的终止。也就是在子线程调用了join()方法后面的代码，只有等到子线程结束了才能执行。<br>  14.static void yield();放弃cpu资源，让给其他线程，放弃的时间不确定，可能一会就会重新获得CPU时间片。<br>  15.void setPriority(int newPriority);设置线程的优先级。</p>
+<p>  原来有suspend ,stop,resume  方法有死锁倾向。interput方法可以终止线程</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.run();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5000000</span>; i++) &#123;</span><br><span class="line">        <span class="comment">//      if (this.interrupted()) &#123;</span></span><br><span class="line">        <span class="comment">//     System.out.println("已经是停止状态了!我要退出了!");</span></span><br><span class="line">        <span class="comment">//     return;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">            System.out.println(<span class="string">"i="</span> + (i + <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            MyThread thread = <span class="keyword">new</span> MyThread();</span><br><span class="line">            thread.start();</span><br><span class="line">            Thread.sleep(<span class="number">2000</span>);</span><br><span class="line">            thread.interrupt();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"main catch"</span>);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  运行以上代码，发现并不能终止线程。<br>  注释的部分，interrupted(),return之后终止线程。</p>
 
       
     </div>
@@ -449,6 +441,15 @@
 
     <footer class="post-footer">
       
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Java-多线程/" rel="tag"># -Java -多线程</a>
+          
+        </div>
+      
 
       
       
@@ -458,8 +459,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/05/Try-it-Hard/" rel="next" title="Try it Hard">
-                <i class="fa fa-chevron-left"></i> Try it Hard
+              <a href="/2019/07/10/快速幂/" rel="next" title="快速幂">
+                <i class="fa fa-chevron-left"></i> 快速幂
               </a>
             
           </div>
@@ -467,10 +468,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/09/从零开始的Java多线程-一/" rel="prev" title="从零开始的Java多线程(一)">
-                从零开始的Java多线程(一) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
