@@ -212,26 +212,25 @@ class Solution {
 <p>这里贴个链接便于理解 <a href="https://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html" target="_blank" rel="noopener">https://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html</a> ;</p>
 <pre><code class="java">```
 class Solution {
-public int majorityElement(int[] nums) {
-    if(nums.length==0) return nums[0];
-    int marjor=nums[0];
-    int count=0;
-    for (int i = 0,len=nums.length; i &lt; len; i++) {
-        if(nums[i]==marjor){
-            count++;
-        }else{
-            count--;
+    public int majorityElement(int[] nums) {
+        if(nums.length==0) return nums[0];
+        int marjor=nums[0];
+        int count=0;
+        for (int i = 0,len=nums.length; i &lt; len; i++) {
+            if(nums[i]==marjor){
+                count++;
+            }else{
+                count--;
+            }
+            if(count&lt;=0){
+                marjor=nums[i];
+            }
         }
-        if(count&lt;=0){
-            marjor=nums[i];
-        }
+        return marjor;
     }
-    return marjor;
-}</code></pre>
-<p>}</p>
-<pre><code>```
-
-```</code></pre><p>这里只讨论了众数大于n/2的情况。那么如果求大于n/3呢? </p>
+} 
+```</code></pre>
+<p>这里只讨论了众数大于n/2的情况。那么如果求大于n/3呢? </p>
 
             <hr>
           </div>
