@@ -155,7 +155,17 @@
 leetcode 169给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。你可以假设数组是非空的，并且给定的数组总是存在众数。
 
 我的笨办法：用Map&lt;K,V&gt;  其中K是数,V是出现次数。当算到某个K对应的V是超过n/2的时候，返回这个数
-```class Solution {    public int majorityElement(int[] nums) {        int len=nums.length;        if(len==1){            return nums[0];        }        Map&lt;Integer,Integer&gt; numberMap=new HashMap&lt;&gt;();        for (int i = 0; i &lt; len; i++) {            if(numberMap.containsKey(nums[i])){                int target=numberMap.get(nums[</div>
+```
+class Solution {
+    public int majorityElement(int[] nums) {
+        int len=nums.length;
+        if(len==1){
+            return nums[0];
+        }
+        Map&lt;Integer,Integer&gt; numberMap=new HashMap&lt;&gt;();
+        for (int i = 0; i &lt; len; i++) {
+            if(numberMap.containsKey(nums[i])){
+                int target=numberMap</div>
         </div>
       </a>
 
