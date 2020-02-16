@@ -159,7 +159,14 @@
 输出：true
 解释：S 和 T 都会变成 “ac”。
 难度是简单，用栈来做
-</div>
+public static boolean backspaceCompare(String S, String T) {
+        if(S==null&amp;&amp;S.length()==0) return false;
+        if(T==null&amp;&amp;T.length()==0) return false;
+        char[] arr1 = S.toCharArray();
+        char[] arr2 = T.toCharArray();
+
+        Stack&lt;Character&gt; s1 = new Stack&lt;&gt;();
+        Stack&lt;Character&gt; s2 = ne</div>
         </div>
       </a>
 

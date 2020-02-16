@@ -127,7 +127,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    83 字
+                    378 字
                   </span>&nbsp;
                 
 
@@ -176,6 +176,58 @@
 输出：true
 解释：S 和 T 都会变成 “ac”。</code></pre>
 <p>难度是简单，用栈来做</p>
+<pre><code class="java">public static boolean backspaceCompare(String S, String T) {
+        if(S==null&amp;&amp;S.length()==0) return false;
+        if(T==null&amp;&amp;T.length()==0) return false;
+        char[] arr1 = S.toCharArray();
+        char[] arr2 = T.toCharArray();
+
+        Stack&lt;Character&gt; s1 = new Stack&lt;&gt;();
+        Stack&lt;Character&gt; s2 = new Stack&lt;&gt;();
+
+        for (char c : arr1) {
+            if(&#39;#&#39;==c&amp;&amp;!s1.empty()){
+                s1.pop();
+            }else{
+                if(&#39;#&#39;!=c){
+                    s1.push(c);
+                }
+            }
+        }
+        for (char c : arr2) {
+            if(&#39;#&#39;==c&amp;&amp;!s2.empty()){
+                s2.pop();
+            }else{
+                if(&#39;#&#39;!=c){
+                    s2.push(c);
+                }
+            }
+        }
+        if(s1.size()!=s2.size())  return false;
+        String ss1=&quot;&quot;,ss2=&quot;&quot;;
+        while (!s1.empty()&amp;&amp;!s2.empty()){
+            ss1+=s1.pop().toString();
+            ss2+=s2.pop().toString();
+        }
+
+        return ss1.equals(ss2);
+    }</code></pre>
+<p>这里顺便回顾一下Java中的栈</p>
+<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>数据结构中，栈是一种线性数据结构，遵从 LIFO（后进先出）的操作顺序，所有操作都是在顶部进行。</p>
+<p>常用的三个操作</p>
+<ul>
+<li><p>push 入栈</p>
+</li>
+<li><p>pop出栈</p>
+</li>
+<li><p>peek 查看栈顶元素，但不删除</p>
+<p>栈有一个重要的意义就在于：入栈和出栈的对称性。 </p>
+</li>
+</ul>
+<h3 id="Java中的栈Stack"><a href="#Java中的栈Stack" class="headerlink" title="Java中的栈Stack"></a>Java中的栈Stack</h3><p>Stack继承自Vector,底层是由数组实现</p>
+<p><img src="http://ww1.sinaimg.cn/large/694ea900gy1gbyitpeeckj20du0a674h.jpg" srcset="/img/loading.gif" alt="image.png"></p>
+<p>除了push方法，别的都是线程同步的。</p>
+<p>要注意的是，使用pop()和peek()时，若栈顶没有元素，则会抛出EmptyStackException异常，所以在使用之前，要先进行empty()判断。</p>
 
             <hr>
           </div>
