@@ -8,7 +8,7 @@
     <link href="/2020/02/16/%E6%AF%94%E8%BE%83%E5%90%AB%E9%80%80%E6%A0%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     <url>/2020/02/16/%E6%AF%94%E8%BE%83%E5%90%AB%E9%80%80%E6%A0%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
     
-    <content type="html"><![CDATA[<blockquote><p>给定 S 和 T 两个字符串，当它们分别被输入到空白的文本编辑器后，判断二者是否相等，并返回结果。 # 代表退格字符。</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>给定 S 和 T 两个字符串，当它们分别被输入到空白的文本编辑器后，判断二者是否相等，并返回结果。 # 代表退格字符。</p></blockquote><p>示例：</p><pre><code class="输入：S">输入：S = &quot;ab#c&quot;, T = &quot;ad#c&quot;输出：true解释：S 和 T 都会变成 “ac”。</code></pre><p>难度是简单，用栈来做</p>]]></content>
     
     
     
