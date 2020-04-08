@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>返回倒数第K个节点</title>
+    <link href="/2020/04/08/%E8%BF%94%E5%9B%9E%E5%80%92%E6%95%B0%E7%AC%ACK%E4%B8%AA%E8%8A%82%E7%82%B9/"/>
+    <url>/2020/04/08/%E8%BF%94%E5%9B%9E%E5%80%92%E6%95%B0%E7%AC%ACK%E4%B8%AA%E8%8A%82%E7%82%B9/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>实现一种算法，找出单向链表中倒数第 k 个节点。返回该节点的值。<br>输入： 1-&gt;2-&gt;3-&gt;4-&gt;5 和 k = 2<br>输出： 4</p></blockquote><p>自己的思路:遍历一遍链表，同时缓存所有的值。</p><pre><code class="Java">    /** * Definition for singly-linked list. * public class ListNode { *     int val; *     ListNode next; *     ListNode(int x) { val = x; } * } */class Solution {    public int kthToLast(ListNode head, int k) {        List&lt;Integer&gt; list=new ArrayList&lt;&gt;();            int len=1;            ListNode temp=head;            list.add(temp.val);            while(temp!=null){                list.add(temp.val);                temp=temp.next;                len++;            }            int count=len-k;            return list.get(count);    }}</code></pre><p>双指针解法：</p><ul><li>初始时，两个指针均指向 head。</li><li>先将 q 向后移动 k 次。此时p，q的距离为 k。</li><li>同时移动p,q，直到q指向nullptr,此时p-&gt;val即为答案</li></ul><pre><code class="Java">/** * Definition for singly-linked list. * public class ListNode { *     int val; *     ListNode next; *     ListNode(int x) { val = x; } * } */class Solution {    public int kthToLast(ListNode head, int k) {        ListNode p = head;        for(int i=0;i&lt;k;i++){          p = p.next;          }        while(p != null){            p = p.next;            head = head.next;        }        return head.val;    }}</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>比较含退格的字符串</title>
     <link href="/2020/02/16/%E6%AF%94%E8%BE%83%E5%90%AB%E9%80%80%E6%A0%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     <url>/2020/02/16/%E6%AF%94%E8%BE%83%E5%90%AB%E9%80%80%E6%A0%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
@@ -26,22 +45,9 @@
     
     <categories>
       
-      <category>-算法</category>
+      <category>算法</category>
       
     </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Try it Hard</title>
-    <link href="/2019/07/05/Try-it-Hard/"/>
-    <url>/2019/07/05/Try-it-Hard/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
     
     
   </entry>

@@ -141,6 +141,59 @@
     
     
     <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2020/04/08/返回倒数第K个节点/">
+        <p class="h4 index-header">返回倒数第K个节点</p>
+      </a>
+
+      <a href="/2020/04/08/返回倒数第K个节点/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+实现一种算法，找出单向链表中倒数第 k 个节点。返回该节点的值。输入： 1-&gt;2-&gt;3-&gt;4-&gt;5 和 k = 2输出： 4
+
+自己的思路:遍历一遍链表，同时缓存所有的值。
+
+    /**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public int kthToLast(ListNode head, int k) {
+        List&lt;Integer&gt; list=new ArrayList&lt;&gt;();
+            int len=1;
+            ListNode temp=head;
+            list.add(temp.val);
+            while(temp!=null){
+ </div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-08&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%AE%97%E6%B3%95">算法</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
       <a href="/2020/02/16/比较含退格的字符串/">
         <p class="h4 index-header">比较含退格的字符串</p>
       </a>
@@ -219,36 +272,8 @@ class Solution {
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/-%E7%AE%97%E6%B3%95">-算法</a>&nbsp;
+            <a href="/categories/%E7%AE%97%E6%B3%95">算法</a>&nbsp;
           &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2019/07/05/Try-it-Hard/">
-        <p class="h4 index-header">Try it Hard</p>
-      </a>
-
-      <a href="/2019/07/05/Try-it-Hard/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1"></div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-07-05&nbsp;&nbsp;
-        
         
         
       </div>

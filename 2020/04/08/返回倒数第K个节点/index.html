@@ -15,7 +15,7 @@
   <meta name="description" content="For Life">
   <meta name="author" content="ShawnCos">
   <meta name="keywords" content="Study Life Dev  Program">
-  <title>归档 ~ 时光机器</title>
+  <title>返回倒数第K个节点 ~ 时光机器</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.10.2/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
@@ -36,7 +36,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -103,7 +103,7 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="view intro-2" id="background" false
          style="background: url('/img/default.png')no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
@@ -113,6 +113,41 @@
               
             </span>
 
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期三, 四月 8日 2020, 9:53 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    233 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      1 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
             
           </div>
 
@@ -124,50 +159,120 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <blockquote>
+<p>实现一种算法，找出单向链表中倒数第 k 个节点。返回该节点的值。<br>输入： 1-&gt;2-&gt;3-&gt;4-&gt;5 和 k = 2<br>输出： 4</p>
+</blockquote>
+<p>自己的思路:遍历一遍链表，同时缓存所有的值。</p>
+<pre><code class="Java">
+    /**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public int kthToLast(ListNode head, int k) {
+        List&lt;Integer&gt; list=new ArrayList&lt;&gt;();
+            int len=1;
+            ListNode temp=head;
+            list.add(temp.val);
+            while(temp!=null){
+                list.add(temp.val);
+                temp=temp.next;
+                len++;
+            }
+            int count=len-k;
+            return list.get(count);
+    }
+}
+</code></pre>
+<p>双指针解法：</p>
+<ul>
+<li>初始时，两个指针均指向 head。</li>
+<li>先将 q 向后移动 k 次。此时p，q的距离为 k。</li>
+<li>同时移动p,q，直到q指向nullptr,此时p-&gt;val即为答案</li>
+</ul>
+<pre><code class="Java">
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public int kthToLast(ListNode head, int k) {
+        ListNode p = head;
+        for(int i=0;i&lt;k;i++){
+          p = p.next;  
+        }
+
+        while(p != null){
+            p = p.next;
+            head = head.next;
+        }
+
+        return head.val;
+    }
+}
+</code></pre>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
                 
-
-<div class="list-group">
-  <p class="h4">共计 3 篇文章</p>
-  <hr>
-  
-    
-      
-      <p class="h5">2020</p>
-    
-    <a href="/2020/04/08/返回倒数第K个节点/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">返回倒数第K个节点</span>
-      <span style="float: right;">04-08</span>
-    </a>
-  
-    
-    <a href="/2020/02/16/比较含退格的字符串/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">比较含退格的字符串</span>
-      <span style="float: right;">02-16</span>
-    </a>
-  
-    
-      
-      <p class="h5">2019</p>
-    
-    <a href="/2019/07/05/摩尔投票法/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">摩尔投票法</span>
-      <span style="float: right;">07-05</span>
-    </a>
-  
-</div>
-
-
-              </div>
-            </div>
+                  <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95">算法</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -246,6 +351,11 @@
 
 
 
+  
+    <script src="https://cdn.staticfile.org/tocbot/4.8.0/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
@@ -286,7 +396,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "返回倒数第K个节点&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
