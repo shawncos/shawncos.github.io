@@ -34,51 +34,13 @@ theme:
     #- navigation.indexes #启用节索引页后，可以将文档直接附加到节
     - search.share #搜索分享按钮
   language: zh # 一些提示性的文字会变成中文
-  
- 
-  icon: 
-    repo: fontawesome/brands/github #右上角图标
-edit_uri: edit/main/docs # 编辑按钮跳转的链接 
-repo_url: https://github.com/Wcowin/mymkdocs # 右上角点击跳转的链接
-repo_name: Wcowin.github.io # 右上角的名字
  
 # [Navigtion]
-nav: 
-  - 博客:
-    - 好用/好玩网站分享: blog/Webplay.md
-    - What is Github: blog/Github.md
-    - 解决谷歌翻译用不了的问题: blog/googletranslate.md
-    - Mac/windows软件网站汇总: blog/macsoft.md
-    - win11资源分享: blog/win.md
-    - Telegram 群组、频道、机器人 - 汇总分享: blog/TG.md
-    - Python:
-        - 将Python文件.py打包成.exe可执行程序: blog/py/python.md
-        - pip: blog/py/pip.md
-    - C语言: blog/c.md
-    - 科学上网: blog/kexue.md
-  - 开发: 
-    - Markdown: develop/markdown.md
-    - MWeb Pro: develop/MWeb.md
-    - 大厂们的良心软件～: develop/fenxiang.md
-    - 写给所有 Mac 用户的摸鱼指北: develop/Mac.md
-  - 闲话:
-    - 原神: relax/game.md
-    - 诗文:
-      - 滕王阁序: relax/shiwen/twgx.md
-      - 望江南·超然台作: relax/shiwen/sjcnh.md
-      - 击鼓: relax/shiwen/jg.md
-      - 雨霖铃·秋别: relax/shiwen/yll.md
-  - 旅行: 
-    - 家乡: trip/LH.md
-    - 重庆: trip/travel.md
-  - 关于:
-    - 个人履历: about/geren.md
-    - 网站制作: about/web.md
  
  
   
   
-copyright: Copyright &copy; 2022王科文 # 左下角的版权声明
+copyright: Copyright &copy; xcao # 左下角的版权声明
   
  
 extra:
@@ -135,11 +97,3 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.superfences # 代码块高亮插件
   - meta # 支持Markdown文件上方自定义标题标签等
-     
-extra_javascript:
-  - javascripts/extra.js
-  - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-extra_css:
-  - stylesheets/extra.css
