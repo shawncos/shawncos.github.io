@@ -4,7 +4,7 @@ site_url: http://xcao.live
 site_author: xcao
 #[UI]
 theme:
-  name: material
+  name: simple-blog
   palette:
     #primary: blue grey
   
