@@ -5,8 +5,6 @@ site_author: xcao
 #[UI]
 theme:
   name: material
-  palette:
-    primary: blue grey
   features: 
     - navigation.instant #- header.autohide  #自动隐藏
     #- announce.dismiss #呈现可标记为由用户读取的临时公告，可以包含一个用于取消当前公告的按钮
@@ -61,6 +59,7 @@ extra:
 plugins:
   - search
   - offline
+  - blog
   - awesome-pages                   # 启用 mkdocs-awesome-plugin
   - macros                          # 启用 mkdocs-macros-plugin
   - tags:
