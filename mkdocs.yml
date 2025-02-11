@@ -91,3 +91,7 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.superfences # 代码块高亮插件
   - meta # 支持Markdown文件上方自定义标题标签等
+extra_css:
+  - css/custom.css
+extra_javascript:
+  - js/custom.js
