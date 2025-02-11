@@ -82,23 +82,3 @@ plugins:
       tags_hierarchy_separator: .   # 层次结构分隔符
       shadow: true
       export: true
-markdown_extensions:
-  - abbr
-  - pymdownx.caret
-  - pymdownx.mark
-  - pymdownx.tilde
-  - md_in_html
-  - pymdownx.arithmatex:  # latex支持
-      generic: true
-  - toc:
-      permalink: true # 固定标题位置为当前位置
-  - pymdownx.highlight: # 代码块高亮
-      anchor_linenums: true
-      # linenums: true # 显示行号
-      # auto_title: true # 显示编程语言名称
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - attr_list
-  - pymdownx.superfences # 代码块高亮插件
-  - meta # 支持Markdown文件上方自定义标题标签等
