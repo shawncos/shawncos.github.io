@@ -73,7 +73,15 @@ extra:
       
 plugins:
   - search
-  - tags  #标签
+  - offline
+  - awesome-pages                   # 启用 mkdocs-awesome-plugin
+  - macros                          # 启用 mkdocs-macros-plugin
+  - tags:
+      tags_file: tags.md
+      tags_hierarchy: true          # 启用对标记层次结构
+      tags_hierarchy_separator: .   # 层次结构分隔符
+      shadow: true
+      export: true
 markdown_extensions:
   - abbr
   - pymdownx.caret
