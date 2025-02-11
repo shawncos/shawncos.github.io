@@ -1,78 +1,48 @@
-/* 全局样式 */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
+
+/*[✨中文网字计划-提供便捷实用的全字符集中文渲染方案](https://chinese-font.netlify.app/zh-cn/)*/
+/*[悠哉 | 在线字体预览测试部署](https://chinese-font.netlify.app/zh-cn/fonts/yozai/Yozai-Regular)*/
+/*[悠哉字体](https://github.com/KonghaYao/chinese-free-web-font-storage/tree/branch/packages/yozai/fonts)*/
+/*@import url("https://unpkg.com/browse/@chinese-fonts/yozai@2.0.1/dist/Yozai-Regular/result.css");*/
+/*@import url("https://cdn.jsdelivr.net/npm/@chinese-fonts/yozai@2.0.1/dist/Yozai-Regular/result.css");*/
+@import url("https://chinese-fonts-cdn.deno.dev/packages/yozai/dist/Yozai-Regular/result.css");
+* { font-family: 'Yozai', 'Microsoft YaHei', 'NSimSun', 'SimSun' }
+
+/*字体整体变大*/
+html { font-size: 1.5rem; }
+/*body * { font-size: 1.2rem; }*/
+
+/** { text-shadow: 1px 1px 5px var(--md-accent-fg-color); font-family: 'FangSong', 'SimSun', 'Microsoft YaHei', 'NSimSun', sans-serif; font-weight: bold; }*/
+
+/*h2 { color: #b0eb00; }*/
+h2 { color: var(--md-accent-fg-color); font-weight: bold; }
+h3 { color: var(--md-typeset-a-color); font-weight: bold; }
+/*h3 { color: var(--md-primary-fg-color); font-weight: bold; }*/
+h4 { color: var(--md-code-hl-constant-color); }
+
+/*strong { color: var(--md-code-hl-special-color); }*/
+
+
+/* 水平排列 */
+
+.row {
+  display: flex;
+  align-items: flex-start;
 }
 
-/* 导航栏样式 */
-.md-header {
-    background-color: #2c3e50;
-    color: white;
+.row div {
+  flex: 1;
+  text-align: justify;
 }
 
-.md-tabs {
-    background-color: #2c3e50;
+.row div:not(:first-child) {
+  margin-left: 1em;
 }
 
-.md-tabs__link {
-    color: white;
-    transition: color 0.3s ease;
-}
-
-.md-tabs__link:hover {
-    color: #3498db;
-}
-
-/* 主内容区域样式 */
-.md-main__inner {
-    padding: 2em;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.md-content__inner article {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 2em;
-    margin-bottom: 2em;
-    animation: fadeInUp 1s ease;
-}
-
-.md-content__inner article h2 {
-    margin-top: 0;
-    color: #2c3e50;
-}
-
-/* 页脚样式 */
-.md-footer {
-    background-color: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 1em 0;
-}
-
-/* 动画效果 */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* 响应式设计 */
-@media (max-width: 600px) {
-    .md-main__inner {
-        padding: 1em;
-    }
-    .md-content__inner article {
-        padding: 1.5em;
-    }
+/* 封面图 */
+.cover-big { max-width: 600px!important; max-height: 600px!important;
+  /*box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);*/
+  box-shadow: 1px 1px 3px rgba(255, 255, 255, 1), 3px 3px 5px rgba(0, 0, 0, 1);
+  /*box-shadow: 1px 1px 3px rgba(255, 255, 255, 1), 3px 3px 5px var(--md-accent-fg-color);*/
+  /*box-shadow: 1px 1px 3px rgba(255, 255, 255, 1), 3px 3px 5px var(--md-typeset-a-color);*/
+  border-radius: 10px;
 }
