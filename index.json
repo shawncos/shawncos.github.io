@@ -1,1 +1,20 @@
-{"version":"https://jsonfeed.org/version/1.1","title":"首页  Time Channel","description":"  首页  Time Channel","home_page_url":"https://shawncos.github.io/","feed_url":"https://shawncos.github.io/index.json","language":"cn-ZH","icon":"https://shawncos.github.io/apple-touch-icon.png","favicon":"https://shawncos.github.io/apple-touch-icon.png","authors":[{"name":"Your Name","url":"https://example.org/somepage","avatar":"https://shawncos.github.io/path/to/some-image.jpg"}],"items":[]}
+
+{
+    "version": "https://jsonfeed.org/version/1.1",
+    "title": "首页  Time Channel",
+    "description": "  首页  Time Channel",
+    "home_page_url": "https://shawncos.github.io/",
+    "feed_url": "https://shawncos.github.io/index.json",
+    "language": "cn-ZH",
+    "icon": "https://shawncos.github.io/apple-touch-icon.png",
+    "favicon": "https://shawncos.github.io/apple-touch-icon.png",
+    "authors": [
+        {
+            "name": "Your Name",
+            "url": "https://example.org/somepage",
+            "avatar": "https://shawncos.github.io/path/to/some-image.jpg"
+        }
+    ],
+    "items": [
+        ]
+}
