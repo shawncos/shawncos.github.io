@@ -1,0 +1,118 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>Hugo使用方法 - </title><meta name=Description content="Space For XC"><meta property="og:url" content="https://xcao.live/posts/hugo-uage/"><meta property="og:site_name" content="Space"><meta property="og:title" content="Hugo使用方法"><meta property="og:description" content="折腾过很多种blog,都半途而废了,借助于AI,搭建hugo
+使用 GitHub 配合 Hugo 部署个人博客是一个高效且免费的方案，主要利用 GitHub Pages 托管静态文件。以下是详细步骤： 一、准备工作
+安装工具 ○ 安装 Hugo（建议安装扩展版 hugo_extended，支持更多主题功能） ○ 安装 Git ○ 注册 GitHub 账号 二、创建 Hugo 博客项目
+初始化博客 打开终端，执行以下命令创建 Hugo 项目（将 my-blog 替换为你的博客名称）：bash hugo new site my-blog cd my-blog
+添加主题 选择一个 Hugo 主题（推荐从 Hugo Themes 挑选），以经典主题 LoveIt 为例：bash git init # 初始化 Git 仓库 git submodule add https://github.com/dillonzq/LoveIt.git themes/LoveIt
+（添加主题为子模块，方便后续更新） 3. 配置主题 复制主题的示例配置到博客根目录（参考主题文档）：bash cp themes/LoveIt/exampleSite/config.toml .
+编辑 config.toml，修改博客名称、作者、语言等基础信息。 4. 创建第一篇文章bash hugo new posts/hello-hugo."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-10-15T10:30:00+08:00"><meta property="article:modified_time" content="2023-10-15T10:30:00+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Hugo使用方法"><meta name=twitter:description content="折腾过很多种blog,都半途而废了,借助于AI,搭建hugo
+使用 GitHub 配合 Hugo 部署个人博客是一个高效且免费的方案，主要利用 GitHub Pages 托管静态文件。以下是详细步骤： 一、准备工作
+安装工具 ○ 安装 Hugo（建议安装扩展版 hugo_extended，支持更多主题功能） ○ 安装 Git ○ 注册 GitHub 账号 二、创建 Hugo 博客项目
+初始化博客 打开终端，执行以下命令创建 Hugo 项目（将 my-blog 替换为你的博客名称）：bash hugo new site my-blog cd my-blog
+添加主题 选择一个 Hugo 主题（推荐从 Hugo Themes 挑选），以经典主题 LoveIt 为例：bash git init # 初始化 Git 仓库 git submodule add https://github.com/dillonzq/LoveIt.git themes/LoveIt
+（添加主题为子模块，方便后续更新） 3. 配置主题 复制主题的示例配置到博客根目录（参考主题文档）：bash cp themes/LoveIt/exampleSite/config.toml .
+编辑 config.toml，修改博客名称、作者、语言等基础信息。 4. 创建第一篇文章bash hugo new posts/hello-hugo."><meta name=application-name content="看山看水独坐，听风听雨高眠。"><meta name=apple-mobile-web-app-title content="看山看水独坐，听风听雨高眠。"><meta name=referrer content="no-referrer"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel=canonical href=https://xcao.live/posts/hugo-uage/><link rel=stylesheet href=/css/style.min.css><link rel=preload href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css></noscript><link rel=preload href=https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hugo使用方法","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/xcao.live\/posts\/hugo-uage\/"},"genre":"posts","wordcount":518,"url":"https:\/\/xcao.live\/posts\/hugo-uage\/","datePublished":"2023-10-15T10:30:00+08:00","dateModified":"2023-10-15T10:30:00+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"shawn.cao"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title>Space</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>文章 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/categories/>分类 </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title>Space</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/ title>文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></header><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Hugo使用方法</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>shawn.cao</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw" aria-hidden=true></i>&nbsp;<time datetime=2023-10-15>2023-10-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden=true></i>&nbsp;518 words&nbsp;
+<i class="far fa-clock fa-fw" aria-hidden=true></i>&nbsp;3 minutes&nbsp;</div></div><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>Contents</span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents></nav></div></div><div class=content id=content><blockquote><p>折腾过很多种blog,都半途而废了,借助于AI,搭建hugo</p></blockquote><p>使用 GitHub 配合 Hugo 部署个人博客是一个高效且免费的方案，主要利用 GitHub Pages 托管静态文件。以下是详细步骤：
+一、准备工作</p><ol><li><p>安装工具
+○ 安装 Hugo（建议安装扩展版 hugo_extended，支持更多主题功能）
+○ 安装 Git
+○ 注册 GitHub 账号
+二、创建 Hugo 博客项目</p></li><li><p>初始化博客
+打开终端，执行以下命令创建 Hugo 项目（将 my-blog 替换为你的博客名称）：bash
+hugo new site my-blog
+cd my-blog</p></li><li><p>添加主题
+选择一个 Hugo 主题（推荐从 Hugo Themes 挑选），以经典主题 LoveIt 为例：bash
+git init # 初始化 Git 仓库
+git submodule add <a href=https://github.com/dillonzq/LoveIt.git target=_blank rel="noopener noreffer">https://github.com/dillonzq/LoveIt.git</a> themes/LoveIt</p></li></ol><p>（添加主题为子模块，方便后续更新）
+3. 配置主题
+复制主题的示例配置到博客根目录（参考主题文档）：bash
+cp themes/LoveIt/exampleSite/config.toml .</p><p>编辑 config.toml，修改博客名称、作者、语言等基础信息。
+4. 创建第一篇文章bash
+hugo new posts/hello-hugo.md</p><p>打开 content/posts/hello-hugo.md，用 Markdown 编写内容（注意删除头部 draft: true 才会发布）。
+5. 本地预览
+启动 Hugo 本地服务器，实时查看效果：bash
+hugo server -D # -D 表示包含草稿文章</p><p>访问 http://localhost:1313 即可预览博客。
+三、通过 GitHub Pages 部署
+GitHub Pages 支持两种部署方式，推荐使用 第二种（更灵活）：
+方式 1：直接部署 public 目录（简单但功能有限）</p><ol><li><p>构建静态文件
+生成可部署的静态文件到 public 目录：bash
+hugo # 不带 -D，只生成非草稿内容</p></li><li><p>创建 GitHub 仓库
+在 GitHub 新建仓库，命名为 &lt;你的用户名>.github.io（必须严格匹配，例如 octocat.github.io），这是 GitHub Pages 的特殊仓库名，用于托管个人主页。</p></li><li><p>推送 public 目录到仓库bash
+cd public
+git init
+git add .
+git commit -m &ldquo;First deploy&rdquo;
+git branch -M main
+git remote add origin <a href=https://github.com/ target=_blank rel="noopener noreffer">https://github.com/</a>&lt;你的用户名>/&lt;你的用户名>.github.io.git
+git push -u origin main</p></li></ol><p>几分钟后，访问 https://&lt;你的用户名>.github.io 即可看到博客。
+方式 2：使用 GitHub Actions 自动部署（推荐）
+通过 GitHub Actions，可实现 “推送代码后自动构建并部署”，更适合持续更新。</p><ol><li>创建两个仓库
+○ 仓库 A：命名为 my-blog-source（存储 Hugo 源码，私有 / 公开均可）
+○ 仓库 B：命名为 &lt;你的用户名>.github.io（存储最终静态文件，必须公开）</li><li>推送 Hugo 源码到仓库 Abash</li></ol><h1 id=在博客根目录my-blog执行>在博客根目录（my-blog）执行</h1><p>git add .
+git commit -m &ldquo;Initial commit&rdquo;
+git branch -M main
+git remote add origin <a href=https://github.com/ target=_blank rel="noopener noreffer">https://github.com/</a>&lt;你的用户名>/my-blog-source.git
+git push -u origin main</p><ol start=3><li>配置 GitHub Actions
+在仓库 A 中创建工作流文件：bash
+mkdir -p .github/workflows
+touch .github/workflows/deploy.yml</li></ol><p>编辑 deploy.yml，粘贴以下内容（替换 &lt;你的用户名> 为实际 GitHub 用户名）：yaml
+name: Deploy Hugo Site to GitHub Pages</p><p>on:
+push:
+branches: [ main ] # 源码仓库的主分支</p><p>jobs:
+deploy:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+with:
+submodules: true # 拉取主题子模块
+fetch-depth: 0</p><pre><code>  - name: Setup Hugo
+    uses: peaceiris/actions-hugo@v2
+    with:
+      hugo-version: 'latest'
+      extended: true  # 使用扩展版
+
+  - name: Build
+    run: hugo --minify  # 构建静态文件
+
+  - name: Deploy to GitHub Pages
+    uses: peaceiris/actions-gh-pages@v4
+    with:
+      deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}  # 部署密钥
+      external_repository: &lt;你的用户名&gt;/&lt;你的用户名&gt;.github.io  # 仓库 B
+      publish_branch: main  # 仓库 B 的部署分支
+      publish_dir: ./public  # 构建结果目录
+</code></pre><ol start=4><li>配置部署密钥
+○ 本地生成 SSH 密钥（一路回车，不要设置密码）：bash</li></ol><p>○ 复制公钥（hugo-deploy-key.pub 内容）到仓库 B 的 Settings → Deploy keys，勾选 Allow write access。
+○ 复制私钥（hugo-deploy-key 内容）到仓库 A 的 Settings → Secrets → Actions，新建密钥 ACTIONS_DEPLOY_KEY，粘贴私钥。
+5. 完成部署
+推送代码到仓库 A 的 main 分支，GitHub Actions 会自动运行构建并部署到仓库 B。几分钟后，访问 https://&lt;你的用户名>.github.io 即可看到博客。
+四、后续维护
+● 发布新文章：用 hugo new posts/新文章.md 创建并编辑，推送源码到仓库 A 后自动部署。
+● 更新主题：执行 git submodule update &ndash;remote &ndash;merge 更新主题，再推送代码。
+● 自定义域名：在仓库 B 的 Settings → Pages → Custom domain 中配置自己的域名（需提前解析 DNS）。</p><p>通过这种方式，你可以专注于内容创作，GitHub 会自动处理构建和部署，非常适合个人博客的长期维护。</p><p>换电脑后，只需重新配置开发环境并同步 Hugo 博客的源代码，就能继续维护博客。以下是详细步骤：
+五、在新电脑上安装必要工具</p><ol><li><p>安装 Git
+下载并安装 Git，确保终端中能运行 git &ndash;version 验证安装成功。</p></li><li><p>安装 Hugo
+根据新电脑的系统（Windows/macOS/Linux），从 Hugo 官网 下载对应版本（推荐 hugo_extended 扩展版），安装后通过 hugo version 验证。
+六、同步博客源代码
+如果之前已将 Hugo 源码（非 public 目录）推送到 GitHub 仓库（如前文的 my-blog-source），直接克隆仓库即可：</p></li><li><p>克隆代码到新电脑
+打开终端，进入你想存放博客的目录，执行：bash
+git clone <a href=https://github.com/ target=_blank rel="noopener noreffer">https://github.com/</a>&lt;你的用户名>/my-blog-source.git
+cd my-blog-source # 进入博客目录</p></li><li><p>拉取主题子模块
+由于主题是作为 Git 子模块存在的，克隆后需要单独拉取主题文件：bash
+git submodule update &ndash;init &ndash;recursive</p></li></ol><p>（这一步会下载主题到 themes 目录，确保本地能正常预览）
+七、验证本地环境</p><ol><li>预览博客
+运行本地服务器，确认博客能正常显示：bash
+hugo server -D</li></ol><p>访问 http://localhost:1313，检查文章、主题样式是否正常。
+2. 测试发布流程
+可以尝试创建一篇测试文章，推送代码到 GitHub，验证 GitHub Actions 是否能自动部署（如果用了自动部署方案）：bash
+hugo new posts/test-on-new-pc.md # 创建文章</p><h1 id=编辑文章后删除-draft-true>编辑文章后，删除 draft: true</h1><p>git add .
+git commit -m &ldquo;Test on new PC&rdquo;
+git push origin main</p><p>八、补充说明
+● 如果之前没备份源码：
+若只推送了 public 目录到 GitHub（方式 1），则需要从旧电脑拷贝 Hugo 源码（整个博客目录，除 public 外）到新电脑，再按上述步骤初始化 Git 并推送（建议后续改用双仓库 + Actions 的方式管理）。
+● 密钥 / 权限问题：
+如果推送代码时出现权限错误，可能是新电脑未配置 GitHub 账号：
+a. 终端中运行 git config &ndash;global user.name &ldquo;你的用户名&rdquo; 和 git config &ndash;global user.email &ldquo;你的邮箱&rdquo;
+b. 若用 SSH 地址克隆，需在新电脑生成 SSH 密钥并添加到 GitHub（ Settings → SSH and GPG keys ）。</p><p>通过以上步骤，新电脑就能完全复用之前的博客环境，后续写作、更新主题等操作和原来完全一致。核心是确保源码通过 Git 备份，换设备时只需克隆代码 + 安装依赖即可。</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>Updated on 2023-10-15</span></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on X" data-sharer=x data-url=https://xcao.live/posts/hugo-uage/ data-title=Hugo使用方法><i class="fab fa-x-twitter fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Threads" data-sharer=threads data-url=https://xcao.live/posts/hugo-uage/ data-title=Hugo使用方法><i class="fab fa-threads fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://xcao.live/posts/hugo-uage/><i class="fab fa-facebook-square fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Hacker News" data-sharer=hackernews data-url=https://xcao.live/posts/hugo-uage/ data-title=Hugo使用方法><i class="fab fa-hacker-news fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Line" data-sharer=line data-url=https://xcao.live/posts/hugo-uage/ data-title=Hugo使用方法><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@14.9.0/icons/line.svg aria-hidden=true></i></a><a href=javascript:void(0); title="Share on 微博" data-sharer=weibo data-url=https://xcao.live/posts/hugo-uage/ data-title=Hugo使用方法><i class="fab fa-weibo fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Diaspora" data-sharer=diaspora data-url=https://xcao.live/posts/hugo-uage/ data-title=Hugo使用方法 data-description><i class="fab fa-diaspora fa-fw" aria-hidden=true></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fxcao.live%2fposts%2fhugo-uage%2f&amp;text=Hugo%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95" target=_blank title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags></section><section><span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.128.0">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw" aria-hidden=true></i><span itemprop=copyrightYear>2022 - 2025</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>shawn.cao</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i></a></div><div id=fixed-buttons-hidden><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw" aria-hidden=true></i></a></div><script src=https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js></script><script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js></script><script src=https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js></script><script>window.config={comment:{}}</script><script src=/js/theme.min.js></script></body></html>
