@@ -1,0 +1,144 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>更新服务器DNS - </title><meta name=Description content="Space For XC"><meta property="og:url" content="https://xcao.live/posts/update-dns-script/"><meta property="og:site_name" content="Space"><meta property="og:title" content="更新服务器DNS"><meta property="og:description" content='由于众所周知的原因，国内的云服务器经常出现访问不了github的情况.通过shell脚本实现定时更新的功能
+#!/usr/bin/bash # ==================== 配置参数（根据需求修改）==================== # 远程 Hosts 文件的 URL（替换为你的实际远程地址） REMOTE_HOSTS_URL="https://gitlab.com/ineo6/hosts/-/raw/master/next-hosts" # 更新间隔（秒），默认 1 小时（3600 秒） UPDATE_INTERVAL=3600 # 日志文件路径 LOG_FILE="/var/log/github_hosts_updater.log" # 备份文件存放目录（自动创建） BACKUP_DIR="/var/backups/hosts" # 标记：用于识别脚本自动添加的内容（避免覆盖手动配置） START_MARKER="# === GitHub Hosts Auto-Update Start === #" END_MARKER="# === GitHub Hosts Auto-Update End === #" # ==================== 配置结束 ==================== # 初始化：创建备份目录、日志文件 init() { # 创建备份目录（若不存在） if [ ! -d "$BACKUP_DIR" ]; then mkdir -p "$BACKUP_DIR" chmod 700 "$BACKUP_DIR" fi # 创建日志文件（若不存在） if [ !'><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-08-26T10:30:00+08:00"><meta property="article:modified_time" content="2025-08-26T10:30:00+08:00"><meta property="article:tag" content="教程"><meta name=twitter:card content="summary"><meta name=twitter:title content="更新服务器DNS"><meta name=twitter:description content='由于众所周知的原因，国内的云服务器经常出现访问不了github的情况.通过shell脚本实现定时更新的功能
+#!/usr/bin/bash # ==================== 配置参数（根据需求修改）==================== # 远程 Hosts 文件的 URL（替换为你的实际远程地址） REMOTE_HOSTS_URL="https://gitlab.com/ineo6/hosts/-/raw/master/next-hosts" # 更新间隔（秒），默认 1 小时（3600 秒） UPDATE_INTERVAL=3600 # 日志文件路径 LOG_FILE="/var/log/github_hosts_updater.log" # 备份文件存放目录（自动创建） BACKUP_DIR="/var/backups/hosts" # 标记：用于识别脚本自动添加的内容（避免覆盖手动配置） START_MARKER="# === GitHub Hosts Auto-Update Start === #" END_MARKER="# === GitHub Hosts Auto-Update End === #" # ==================== 配置结束 ==================== # 初始化：创建备份目录、日志文件 init() { # 创建备份目录（若不存在） if [ ! -d "$BACKUP_DIR" ]; then mkdir -p "$BACKUP_DIR" chmod 700 "$BACKUP_DIR" fi # 创建日志文件（若不存在） if [ !'><meta name=application-name content="看山看水独坐，听风听雨高眠。"><meta name=apple-mobile-web-app-title content="看山看水独坐，听风听雨高眠。"><meta name=referrer content="no-referrer"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel=canonical href=https://xcao.live/posts/update-dns-script/><link rel=prev href=https://xcao.live/posts/hugo-uage/><link rel=stylesheet href=/css/style.min.css><link rel=preload href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css></noscript><link rel=preload href=https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"更新服务器DNS","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/xcao.live\/posts\/update-dns-script\/"},"genre":"posts","keywords":"教程","wordcount":402,"url":"https:\/\/xcao.live\/posts\/update-dns-script\/","datePublished":"2025-08-26T10:30:00+08:00","dateModified":"2025-08-26T10:30:00+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"shawn"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title>Space</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>文章 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/categories/>分类 </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title>Space</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/ title>文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></header><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">更新服务器DNS</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>shawn</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw" aria-hidden=true></i>&nbsp;<time datetime=2025-08-26>2025-08-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden=true></i>&nbsp;402 words&nbsp;
+<i class="far fa-clock fa-fw" aria-hidden=true></i>&nbsp;2 minutes&nbsp;</div></div><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>Contents</span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents></nav></div></div><div class=content id=content><blockquote><p>由于众所周知的原因，国内的云服务器经常出现访问不了github的情况.通过shell脚本实现定时更新的功能</p></blockquote><div class="code-block code-line-numbers" style="counter-reset:code-block 0"><div class="code-header language-shell"><span class=code-title><i class="arrow fas fa-angle-right fa-fw" aria-hidden=true></i></span>
+<span class=ellipses><i class="fas fa-ellipsis-h fa-fw" aria-hidden=true></i></span>
+<span class=copy title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden=true></i></span></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=cp>#!/usr/bin/bash
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=c1># ==================== 配置参数（根据需求修改）====================</span>
+</span></span><span class=line><span class=cl><span class=c1># 远程 Hosts 文件的 URL（替换为你的实际远程地址）</span>
+</span></span><span class=line><span class=cl><span class=nv>REMOTE_HOSTS_URL</span><span class=o>=</span><span class=s2>&#34;https://gitlab.com/ineo6/hosts/-/raw/master/next-hosts&#34;</span>
+</span></span><span class=line><span class=cl><span class=c1># 更新间隔（秒），默认 1 小时（3600 秒）</span>
+</span></span><span class=line><span class=cl><span class=nv>UPDATE_INTERVAL</span><span class=o>=</span><span class=m>3600</span>
+</span></span><span class=line><span class=cl><span class=c1># 日志文件路径</span>
+</span></span><span class=line><span class=cl><span class=nv>LOG_FILE</span><span class=o>=</span><span class=s2>&#34;/var/log/github_hosts_updater.log&#34;</span>
+</span></span><span class=line><span class=cl><span class=c1># 备份文件存放目录（自动创建）</span>
+</span></span><span class=line><span class=cl><span class=nv>BACKUP_DIR</span><span class=o>=</span><span class=s2>&#34;/var/backups/hosts&#34;</span>
+</span></span><span class=line><span class=cl><span class=c1># 标记：用于识别脚本自动添加的内容（避免覆盖手动配置）</span>
+</span></span><span class=line><span class=cl><span class=nv>START_MARKER</span><span class=o>=</span><span class=s2>&#34;# === GitHub Hosts Auto-Update Start === #&#34;</span>
+</span></span><span class=line><span class=cl><span class=nv>END_MARKER</span><span class=o>=</span><span class=s2>&#34;# === GitHub Hosts Auto-Update End === #&#34;</span>
+</span></span><span class=line><span class=cl><span class=c1># ==================== 配置结束 ====================</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 初始化：创建备份目录、日志文件</span>
+</span></span><span class=line><span class=cl>init<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 创建备份目录（若不存在）</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=o>[</span> ! -d <span class=s2>&#34;</span><span class=nv>$BACKUP_DIR</span><span class=s2>&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>        mkdir -p <span class=s2>&#34;</span><span class=nv>$BACKUP_DIR</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>        chmod <span class=m>700</span> <span class=s2>&#34;</span><span class=nv>$BACKUP_DIR</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=k>fi</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 创建日志文件（若不存在）</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=o>[</span> ! -f <span class=s2>&#34;</span><span class=nv>$LOG_FILE</span><span class=s2>&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>        touch <span class=s2>&#34;</span><span class=nv>$LOG_FILE</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>        chmod <span class=m>600</span> <span class=s2>&#34;</span><span class=nv>$LOG_FILE</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=k>fi</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 检查 curl 是否安装（用于获取远程文件）</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> ! <span class=nb>command</span> -v curl <span class=p>&amp;</span>&gt; /dev/null<span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>        log <span class=s2>&#34;错误：未安装 curl，请先执行 &#39;sudo apt install curl&#39;（Linux）或 &#39;brew install curl&#39;（macOS）&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=nb>exit</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>    <span class=k>fi</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 日志函数：输出时间+内容到日志文件和控制台</span>
+</span></span><span class=line><span class=cl>log<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=nb>local</span> <span class=nv>msg</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$1</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nb>local</span> <span class=nv>time</span><span class=o>=</span><span class=k>$(</span>date <span class=s2>&#34;+%Y-%m-%d %H:%M:%S&#34;</span><span class=k>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;[</span><span class=nv>$time</span><span class=s2>] </span><span class=nv>$msg</span><span class=s2>&#34;</span> <span class=p>|</span> tee -a <span class=s2>&#34;</span><span class=nv>$LOG_FILE</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 备份当前 hosts 文件（带时间戳，避免覆盖）</span>
+</span></span><span class=line><span class=cl>backup_hosts<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=nb>local</span> <span class=nv>timestamp</span><span class=o>=</span><span class=k>$(</span>date <span class=s2>&#34;+%Y%m%d%H%M%S&#34;</span><span class=k>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>local</span> <span class=nv>backup_path</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$BACKUP_DIR</span><span class=s2>/hosts_</span><span class=nv>$timestamp</span><span class=s2>.bak&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 复制 hosts 到备份目录</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> cp /etc/hosts <span class=s2>&#34;</span><span class=nv>$backup_path</span><span class=s2>&#34;</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>        log <span class=s2>&#34;已备份 hosts 到：</span><span class=nv>$backup_path</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span>
+</span></span><span class=line><span class=cl>        log <span class=s2>&#34;警告：备份 hosts 失败！&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=k>fi</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 从远程 URL 获取最新 Hosts 内容</span>
+</span></span><span class=line><span class=cl>fetch_remote_hosts<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    log <span class=s2>&#34;正在从远程获取 Hosts：</span><span class=nv>$REMOTE_HOSTS_URL</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 使用 curl 获取远程内容（超时 10 秒，失败重试 2 次）</span>
+</span></span><span class=line><span class=cl>    <span class=nb>local</span> <span class=nv>remote_content</span><span class=o>=</span><span class=k>$(</span>curl -s --connect-timeout <span class=m>10</span> --retry <span class=m>2</span> <span class=s2>&#34;</span><span class=nv>$REMOTE_HOSTS_URL</span><span class=s2>&#34;</span><span class=k>)</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 检查获取结果（为空则失败）</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=o>[</span> -z <span class=s2>&#34;</span><span class=nv>$remote_content</span><span class=s2>&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>        log <span class=s2>&#34;错误：获取远程 Hosts 失败（URL 无效或网络异常）&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>    <span class=k>fi</span>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$remote_content</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=m>0</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 更新本地 hosts 文件（保留手动配置，替换脚本添加的部分）</span>
+</span></span><span class=line><span class=cl>update_hosts<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=nb>local</span> <span class=nv>new_hosts</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$1</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 1. 先备份当前 hosts</span>
+</span></span><span class=line><span class=cl>    backup_hosts
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 2. 读取现有 hosts 内容，提取「非脚本添加」的部分</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 若存在标记，则保留标记外的内容；若不存在标记，则保留全部内容</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> grep -q <span class=s2>&#34;</span><span class=nv>$START_MARKER</span><span class=s2>&#34;</span> /etc/hosts <span class=o>&amp;&amp;</span> grep -q <span class=s2>&#34;</span><span class=nv>$END_MARKER</span><span class=s2>&#34;</span> /etc/hosts<span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 删除标记及其间内容，只保留手动配置部分</span>
+</span></span><span class=line><span class=cl>        <span class=nb>local</span> <span class=nv>pre_content</span><span class=o>=</span><span class=k>$(</span>sed <span class=s2>&#34;/</span><span class=nv>$START_MARKER</span><span class=s2>/,/</span><span class=nv>$END_MARKER</span><span class=s2>/d&#34;</span> /etc/hosts<span class=k>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 无标记，保留全部内容（并提示首次添加）</span>
+</span></span><span class=line><span class=cl>        <span class=nb>local</span> <span class=nv>pre_content</span><span class=o>=</span><span class=k>$(</span>cat /etc/hosts<span class=k>)</span>
+</span></span><span class=line><span class=cl>        log <span class=s2>&#34;首次更新：未发现标记，将在 hosts 末尾添加自动配置&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=k>fi</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 3. 构建新的 hosts 内容（原有内容 + 新 Hosts + 标记）</span>
+</span></span><span class=line><span class=cl>    <span class=nb>local</span> <span class=nv>new_content</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$pre_content</span><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2></span><span class=nv>$START_MARKER</span><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2># 更新时间：</span><span class=k>$(</span>date <span class=s2>&#34;+%Y-%m-%d %H:%M:%S&#34;</span><span class=k>)</span><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2></span><span class=nv>$new_hosts</span><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2></span><span class=nv>$END_MARKER</span><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 4. 写入新内容到 hosts（需要 root 权限）</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$new_content</span><span class=s2>&#34;</span> &gt; /etc/hosts<span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>        log <span class=s2>&#34;hosts 更新成功！&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 刷新 DNS 缓存（不同系统命令不同）</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=o>[</span> <span class=s2>&#34;</span><span class=k>$(</span>uname -s<span class=k>)</span><span class=s2>&#34;</span> <span class=o>=</span> <span class=s2>&#34;Darwin&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>            <span class=c1># macOS 刷新 DNS</span>
+</span></span><span class=line><span class=cl>            dscacheutil -flushcache <span class=o>&amp;&amp;</span> killall -HUP mDNSResponder
+</span></span><span class=line><span class=cl>            log <span class=s2>&#34;已刷新 macOS DNS 缓存&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span>
+</span></span><span class=line><span class=cl>            <span class=c1># Linux 刷新 DNS（适用于大多数系统）</span>
+</span></span><span class=line><span class=cl>            systemctl restart systemd-resolved 2&gt;/dev/null <span class=o>||</span> /etc/init.d/nscd restart 2&gt;/dev/null
+</span></span><span class=line><span class=cl>            log <span class=s2>&#34;已刷新 Linux DNS 缓存&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=k>fi</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span>
+</span></span><span class=line><span class=cl>        log <span class=s2>&#34;错误：写入 hosts 失败（请确保以 root 权限运行脚本）&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>    <span class=k>fi</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 主循环：定时执行更新</span>
+</span></span><span class=line><span class=cl>main<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    init
+</span></span><span class=line><span class=cl>    log <span class=s2>&#34;=== GitHub Hosts 自动更新脚本启动 ===&#34;</span>
+</span></span><span class=line><span class=cl>    log <span class=s2>&#34;更新间隔：</span><span class=k>$((</span>UPDATE_INTERVAL/3600<span class=k>))</span><span class=s2> 小时 | 远程 URL：</span><span class=nv>$REMOTE_HOSTS_URL</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>while</span> true<span class=p>;</span> <span class=k>do</span>
+</span></span><span class=line><span class=cl>        log <span class=s2>&#34;=== 开始新一轮更新 ===&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 获取远程 Hosts</span>
+</span></span><span class=line><span class=cl>        <span class=nv>remote_hosts</span><span class=o>=</span><span class=k>$(</span>fetch_remote_hosts<span class=k>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=o>[</span> <span class=nv>$?</span> -eq <span class=m>0</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>            <span class=c1># 更新本地 hosts</span>
+</span></span><span class=line><span class=cl>            update_hosts <span class=s2>&#34;</span><span class=nv>$remote_hosts</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=k>fi</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 等待下一次更新</span>
+</span></span><span class=line><span class=cl>        log <span class=s2>&#34;等待 </span><span class=k>$((</span>UPDATE_INTERVAL/3600<span class=k>))</span><span class=s2> 小时后再次更新...\n&#34;</span>
+</span></span><span class=line><span class=cl>        sleep <span class=s2>&#34;</span><span class=nv>$UPDATE_INTERVAL</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=k>done</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 启动主程序</span>
+</span></span><span class=line><span class=cl>main</span></span></code></pre></div></div><p>然后</p><div class="code-block code-line-numbers open" style="counter-reset:code-block 0"><div class="code-header language-bash"><span class=code-title><i class="arrow fas fa-angle-right fa-fw" aria-hidden=true></i></span>
+<span class=ellipses><i class="fas fa-ellipsis-h fa-fw" aria-hidden=true></i></span>
+<span class=copy title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden=true></i></span></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nohup github_hosts_updater.sh <span class=p>&amp;</span>  <span class=c1>#保持后台运行就可以了</span></span></span></code></pre></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>Updated on 2025-08-26</span></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on X" data-sharer=x data-url=https://xcao.live/posts/update-dns-script/ data-title=更新服务器DNS data-hashtags=教程><i class="fab fa-x-twitter fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Threads" data-sharer=threads data-url=https://xcao.live/posts/update-dns-script/ data-title=更新服务器DNS><i class="fab fa-threads fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://xcao.live/posts/update-dns-script/ data-hashtag=教程><i class="fab fa-facebook-square fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Hacker News" data-sharer=hackernews data-url=https://xcao.live/posts/update-dns-script/ data-title=更新服务器DNS><i class="fab fa-hacker-news fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Line" data-sharer=line data-url=https://xcao.live/posts/update-dns-script/ data-title=更新服务器DNS><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@14.9.0/icons/line.svg aria-hidden=true></i></a><a href=javascript:void(0); title="Share on 微博" data-sharer=weibo data-url=https://xcao.live/posts/update-dns-script/ data-title=更新服务器DNS><i class="fab fa-weibo fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Diaspora" data-sharer=diaspora data-url=https://xcao.live/posts/update-dns-script/ data-title=更新服务器DNS data-description><i class="fab fa-diaspora fa-fw" aria-hidden=true></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fxcao.live%2fposts%2fupdate-dns-script%2f&amp;text=%e6%9b%b4%e6%96%b0%e6%9c%8d%e5%8a%a1%e5%99%a8DNS" target=_blank title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/tags/%E6%95%99%E7%A8%8B/>教程</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/posts/hugo-uage/ class=prev rel=prev title=Hugo使用方法><i class="fas fa-angle-left fa-fw" aria-hidden=true></i>Hugo使用方法</a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.128.0">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw" aria-hidden=true></i><span itemprop=copyrightYear>2022 - 2025</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>shawn</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i></a></div><div id=fixed-buttons-hidden><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw" aria-hidden=true></i></a></div><script src=https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js></script><script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js></script><script src=https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js></script><script>window.config={comment:{}}</script><script src=/js/theme.min.js></script></body></html>
